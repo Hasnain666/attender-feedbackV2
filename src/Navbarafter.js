@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link component for routing
 
 const Navbarafter = () => {
   return (
@@ -16,7 +17,10 @@ const Navbarafter = () => {
           </a>
           <ul className="nav">
             <li className="nav-item">
-              <a className="nav-link">Home</a>
+              <Link to="/home" className="nav-link">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/question" className="nav-link">Questions</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link">Log Out</a>

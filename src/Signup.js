@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "./signup.css";
-import firebase from "./firebase_config";
-import { auth } from "./firebase_config";
+import { auth } from "./firebase_config"; // Import auth from firebase_config.js
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const Signup = () => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -16,6 +13,7 @@ export const Signup = () => {
     email: "",
     password: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -28,16 +26,14 @@ export const Signup = () => {
     e.preventDefault();
     const { email, password } = formData;
     try {
-      await firebase.auth().createUserWithEmailAndPassword(email, password);
-      // Optionally, you can update user profile here with additional information like name, surname, id
-      await firebase.auth().currentUser.updateProfile({
+      await auth.createUserWithEmailAndPassword(email, password); // Use auth from firebase_config.js
+      await auth.currentUser.updateProfile({
         displayName: formData.name + " " + formData.surname,
       });
       console.log("User signed up successfully!");
-      navigate("/Home"); // Redirect user to Home.js pages
+      navigate("/Home");
     } catch (error) {
       console.error("Error signing up:", error.message);
-      // Handle error: Display error message to user
     }
   };
 

@@ -13,6 +13,8 @@ import { Signinbody } from "./Signinbody";
 import Home from "./Home";
 import Layout from "./Layout";
 import Navbarafter from "./Navbarafter";
+import Question from "./pages/question";
+
 function App() {
   return (
     <BrowserRouter>
@@ -22,12 +24,15 @@ function App() {
             <Route path="/" element={<Navbarbefore />} />
             <Route path="/Signup" element={<Navbarbefore />} />
             <Route path="/home" element={<Navbarafter />} />
+            <Route path="/question" element={<Question />} />
           </Routes>
         </header>
         <Routes>
           <Route path="/" element={<Signinbody />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
+          
+          
         </Routes>
       </div>
     </BrowserRouter>

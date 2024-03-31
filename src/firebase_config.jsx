@@ -1,11 +1,8 @@
-import firebase from "firebase";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-require("firebase/auth");
-
-const firebaseConfig = {
+const firebase_Config = {
   apiKey: "AIzaSyAcBTrA_J9B9B6mBbJ4NR8ET7QiuuhSG3M",
   authDomain: "attender-feedback-80475.firebaseapp.com",
   projectId: "attender-feedback-80475",
@@ -16,11 +13,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+const app = initializeApp(firebase_Config);
 
-//initialize store
-export const db = getFirestore(app);
+// Initialize Firestore
+export const firestore = getFirestore(app);
 
-export const auth = getAuth();
+// Initialize Firebase Analytics
+const analytics = getAnalytics(app);
+
+export const auth = getAuth(app); // Export auth
+
 export default app;
