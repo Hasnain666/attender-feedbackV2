@@ -149,3 +149,4 @@ class ListNominationComponent extends Component {
 }
 
 export default ListNominationComponent
+
