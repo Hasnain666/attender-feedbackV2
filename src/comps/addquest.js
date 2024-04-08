@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from "../firebase_config";
+import Navbarafter from "../Navbarafter";
 
 import { collection, addDoc, getDocs, doc, setDoc, deleteDoc } from "firebase/firestore";
 import './addquest.css';
@@ -75,32 +76,35 @@ const Question = () => {
     };
 
     return (
-        <div className="question-container">
-            <h1 className="question-heading">Question Form</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="event">Select Event:</label>
-                    <select id="event" onChange={(e) => handleEventChange(e.target.value)}>
-                        <option value="">Select</option>
-                        {eventNames.map((eventName, index) => (
-                            <option key={index} value={eventName}>{eventName}</option>
-                        ))}
-                    </select>
-                </div>
-                {questions.map(question => (
-                    <div key={question.id}>
-                        <input
-                            type="text"
-                            placeholder="Add questions"
-                            value={questionResponses[question.id] || ''}
-                            onChange={(e) => handleQuestionChange(question.id, e.target.value)}
-                        />
+        <div>
+            <Navbarafter/>
+            <div className="question-container">
+                <h1 className="question-heading">Question Form</h1>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="event">Select Event:</label>
+                        <select id="event" onChange={(e) => handleEventChange(e.target.value)}>
+                            <option value="">Select</option>
+                            {eventNames.map((eventName, index) => (
+                                <option key={index} value={eventName}>{eventName}</option>
+                            ))}
+                        </select>
                     </div>
-                ))}
-                <button type="button" onClick={handleAddQuestion} style={{ backgroundColor: '#e83e8c', color: '#fff', border: 'none', padding: '10px 20px', cursor: 'pointer', borderRadius: '5px', marginTop: '10px' }}>Add New Question</button>
-                {!submissionSuccess && <button type="submit" className="submit-button">Submit</button>}
-                {submissionSuccess && <p className="success-message">Responses saved successfully!</p>}
-            </form>
+                    {questions.map(question => (
+                        <div key={question.id}>
+                            <input
+                                type="text"
+                                placeholder="Add questions"
+                                value={questionResponses[question.id] || ''}
+                                onChange={(e) => handleQuestionChange(question.id, e.target.value)}
+                            />
+                        </div>
+                    ))}
+                    <button type="button" onClick={handleAddQuestion} style={{ backgroundColor: '#073763', color: '#fff', border: 'none', padding: '10px 20px', cursor: 'pointer', borderRadius: '5px', marginTop: '10px' }}>Add New Question</button>
+                    {!submissionSuccess && <button type="submit" className="submit-button">Submit</button>}
+                    {submissionSuccess && <p className="success-message">Responses saved successfully!</p>}
+                </form>
+            </div>
         </div>
     );
 };
