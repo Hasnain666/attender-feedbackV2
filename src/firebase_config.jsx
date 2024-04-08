@@ -1,10 +1,9 @@
-//import firebase from "firebase/compat";
-// import firebase from "firebase";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-require("firebase/auth");
+import "firebase/auth";
 
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAcBTrA_J9B9B6mBbJ4NR8ET7QiuuhSG3M",
   authDomain: "attender-feedback-80475.firebaseapp.com",
@@ -15,12 +14,17 @@ const firebaseConfig = {
   measurementId: "G-8Z6PN9TKD6",
 };
 
-// Initialize Firebase
+// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
 
-//initialize store
-export const db = getFirestore(app);
+// Initialize Firestore
+const firestore = getFirestore(app);
 
-export const auth = getAuth();
-export default app;
+// Initialize Auth
+const auth = getAuth(app); // Initialize the Auth instance
+
+// Exporting app, firestore, and auth
+export { app, firestore, auth };
+
+// Exporting db
+export const db = firestore;
