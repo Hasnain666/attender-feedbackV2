@@ -2,8 +2,6 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  BrowserRouter,
   Routes,
 } from "react-router-dom";
 import "./App.css";
@@ -13,11 +11,15 @@ import { Signinbody } from "./Signinbody";
 import Home from "./Home";
 import Layout from "./Layout";
 import Navbarafter from "./Navbarafter";
+
+
 import OrgEvents from "./comps/OrgEvents";
 import ListNominationComponent from './comps/listNominations';
+import Question from './comps/addquest'; // Import the Question component
+
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <header>
           <Routes>
@@ -31,11 +33,11 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
           <Route path="/home" element={<OrgEvents />} />
           <Route path="/home/home" element={<Home />} />
-          <Route path="/home/home" element={<Home />} />
-          <Route path ="/nominate" element={<ListNominationComponent />} />
+          <Route path="/nominate" element={<ListNominationComponent />} />
+          <Route path="/addquest" element={<Question />} /> {/* Add route for "/addquest" */}
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

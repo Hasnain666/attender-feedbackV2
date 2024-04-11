@@ -41,6 +41,9 @@ const Navbarafter = () => {
             <li className="nav-item">
               <a className="nav-link">Log Out</a>
             </li>
+            <li className="nav-item">
+            <a className="nav-link" href="./addquest">Add questions</a>
+            </li>
           </ul>
         </div>
       </nav>
