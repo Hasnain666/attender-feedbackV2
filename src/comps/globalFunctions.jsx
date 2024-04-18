@@ -1,3 +1,4 @@
+//getting userdata form cookie
 export function getUserData(args) {
     try {
         return JSON.parse(localStorage.getItem(args));

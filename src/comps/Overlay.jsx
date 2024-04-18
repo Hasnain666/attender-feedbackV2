@@ -1,3 +1,4 @@
+//creates an overlay over the page. will accept the div of the to be displayed content as a child prop
 export function Overlay({ isOpen, onClose, children, title }) {
     return (
         <>
