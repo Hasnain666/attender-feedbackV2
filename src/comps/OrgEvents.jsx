@@ -1,6 +1,6 @@
-import React, {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState} from "react";
 import {db, auth } from "../firebase_config";
-import { getUserData } from "./globalFunctions";
+import {getFbExpirationDate, getUserData} from "./globalFunctions";
 import {collection, getDocs, getDoc, query, doc, addDoc, setDoc, deleteDoc, where} from "firebase/firestore";
 import {useNavigate} from "react-router-dom";
 import firebase from "firebase/compat/app";
@@ -288,8 +288,6 @@ const OrgEvents = () => {
 
     //main function of orgevents. will process the array from useeffect and loops the content through Events Component for display.
     const GenerateEvents = () => {
-        // let eventNodes =
-
         return (
             <div className="orgevents">
                 <Overlay isOpen={ismyAddOverlay} onClose={() => setIsMyAddOverlay(!ismyAddOverlay)} children={AddNewEventsDiv()}
