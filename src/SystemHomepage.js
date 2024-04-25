@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './systemhome.css';
-import Signup from './signup.js';
-import Signinbody from './signin.js';
-// import './images/feedbacksmileys.png';
+import './SystemHomepage.css';
+import Signup from './Signup.js';
+import Signinbody from './Signinbody.js';
 
 function SysHome () {
     const [visible, setVisible] = useState(false); 
     let navigate = useNavigate();
 
+    // handles sign-in when the user clicks on the link in the webpage
     const handleLogIn = () => {
         navigate("/Signinbody");
     };
 
+    // handles sign-up when the user clicks on the link in the webpage
     const handleSignUp = () => {
         navigate("/Signup");
     };
 
+    // manage visibility of the scroll to top button
     const scrollVisible = () => { 
         const scrolled = document.documentElement.scrollTop; 
         if (scrolled > 200){ 
@@ -26,7 +28,8 @@ function SysHome () {
         setVisible(false) 
         } 
     }; 
-        
+
+    // behaviour of the scroll to top button
         const scrollToTop = () => {
             window.scrollTo ({ top: 0, behaviour: "smooth" });
         }; 
@@ -35,49 +38,76 @@ function SysHome () {
 
     
     return (
-        <>
-        <div className="header-container">
-            <h2 className="header-text">Welcome to the Event Attender Feedback System</h2>
-        </div>
+        <div className='home-container'>
+            <div className="header-container">
+                <h2 className="header-text">Welcome to the Event Attender Feedback System</h2>
+            </div>
 
-        <div>
-            <img src="/images/feedbacksmileys.png" alt="image feedback smileys" className="top-image" />
-        </div>
+            <div>
+                <img src="/images/summaryfeedback.png" alt="feedback" className="top-image" />
+            </div>
 
-        <div className="quote">
+            <div className="quote">
+                <p><strong>Listen to your event attendees with ease</strong></p>
+            </div>
+            
+            <div className="main">
+                <div className="main one">
+                <p style={{ float: "left" }} ><strong>For event organisers</strong><br/> 
+                Collect constructive feedback from event attendees <br/>
+                ...digitally.</p>
+                <br/ >
+                <img
+                    src="/images/giphy.gif"
+                    alt="summary"
+                    className="mid-image right" 
+                    width = "220"
+                    height = "250"
+                    style={{ float: "right", marginTop: "-70px", backgroundColor: "#fbeaeb" }}
+                />
+                </div>
+
+                <div className="main two">
+                    <br/ >
+                    <img 
+                        src="/images/feedbackcharts.png" 
+                        alt="chart" 
+                        className ="mid-image left" 
+                        width="300" 
+                        height="300"
+                        style={{ float: "left", marginTop: "-10px" }}/>
+                    <p style={{ float: "right" }}>View all your events in your account <br/> 
+                    Add a new event, edit or delete<br/ > 
+                    Create a new form <br/ > 
+                    View a summary of the feedback <br/> 
+                    <em><strong>All in one account!</strong></em></p> 
+                    <br/ >
+                </div>
+
+                    <p style={{ textAlign: "left", paddingLeft: "100px", lineHeight: "1.5"}} ><br/>Please <a href="#" onClick={handleLogIn}>log in</a> to continue.<br/> 
+                    Don't have an account yet? <a href="#" onClick={handleSignUp}> Sign up</a>. Glad you could join us!</p> 
+                    <p className="mini-text" style={{ textAlign: "left", paddingLeft: "100px", lineHeight: "1.5"}}><em>
+                    Sign up using the email address provided by your organisation</em>
+                    </p>
+                    <br/>
+                </div>        
+
+            <div className="quote .bottom">
                 <p><em>" There is no failure, only feedback" - Robert Allen</em></p>
-        </div>
+            </div>
 
-        <div className="main">
-            <br/ >
-            <p>This is a feedback system for event organisers.</p> 
-            <p>It allows event organisers to collect constructive feedback from event attendees, digitally.</p>
-            <br/ >
-            <p>You can view all your events in your account, add a new event, edit and delete your event.</p>
-            <p>Create a new form and view a summary of the feedback, all in your account.</p> 
-            <br/ >
-            <p>Please <a href="#" onClick={handleLogIn}>log in</a> to continue.</p>
-            <br/ >
-            <p>Or else, <a href="#" onClick={handleSignUp}> sign up</a>. Glad you could join us!</p> 
-            <p className="mini-text"><em>
-                Please sign up using the email address provided by your organisation</em>
-            </p>
-            <br/>
-            <img className="bottom-image" src="/images/feedbackhands.png" alt="image feedback smileys" />
-            <br/> <br/>
-        </div>
+            <div>
+                <button className="button-scroll" onClick={scrollToTop} style={{display: visible ? 'inline':'none'}} >
+                    Scroll to Top</button> 
+            </div>
 
-        <div>
-            <button className="button-scroll" onClick={scrollToTop} style={{display: visible ? 'inline':'none'}} >
-                Scroll to Top</button> 
-        </div>
-
-        <div className="footer">
-            <p><em>All rights reserved. Developed by Group_3_COMP7029</em></p>
-        </div>
-        </>
+            <div className="footer">
+                <p><em>All rights reserved.</em></p>
+                <p style={{ textAlign: "left" }}><em>Group_3_COMP7029</em></p>
+            </div>
+        </div >
          
     );
 };
 
-export default SysHome;
+export default SysHome; 
