@@ -53,7 +53,7 @@ const Navbarafter = () => {
               <a className="nav-link">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" onClick={()=>handleLogout()}>Log Out</a>
+                <a className="nav-link" onClick={()=>handleLogout()}>Log Out</a>
             </li>
           </ul>
         </div>
