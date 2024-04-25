@@ -1,6 +1,5 @@
 import DatePicker from "react-datepicker";
 
-//component containing the html for a single event entity for orgevents
 export function Event({newName, eventName, newDate, eventDate, newFbDate, fbDate, handEvent, buttonName}) {
     const name = {eventName}
     let focusedElement = document.activeElement.id;

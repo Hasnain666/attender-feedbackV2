@@ -25,7 +25,6 @@ export const Signinbody = () => {
       console.log("User signed up successfully!");
       navigate("/Home"); // Redirect user to Home.js pages
     } catch (error) {
-      alert('Incorrect username or password')
       console.error("Error signing up:", error.message);
       // Handle error: Display error message to user
     }

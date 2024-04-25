@@ -61,7 +61,6 @@ export const Signup = () => {
       console.log("User signed up successfully!");
       navigate("/Home"); // Redirect user to Home.js page
     } catch (error) {
-      alert('Account already exist')
       console.error("Error signing up:", error.message);
       // Handle error: Display error message to user
     }
