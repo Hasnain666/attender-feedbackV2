@@ -15,6 +15,7 @@ import Layout from "./Layout";
 import Navbarafter from "./Navbarafter";
 import OrgEvents from "./comps/OrgEvents";
 import ListNominationComponent from './comps/listNominations';
+import SysHome from './SystemHomepage.js';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<Signinbody />} />
+          <Route path="/Homepage" element={<SysHome />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/home" element={<OrgEvents />} />
           <Route path ="/nominate" element={<ListNominationComponent />} />
